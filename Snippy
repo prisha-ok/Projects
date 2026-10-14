@@ -1,0 +1,35 @@
+# Snippy- Rock, Paper and Scissors:-
+import random
+choices = ["rock", "paper", "scissors"]
+rounds = int(input("How many rounds do you want to play? "))
+player_score = 0
+computer_score = 0
+for i in range(rounds):
+    computer = random.choice(choices)
+    while True:
+        player = input("Enter your choice - rock, paper or scissors: ").lower()
+        if player in choices:
+            break
+        else:
+            print("Invalid input! Please choose rock, paper or scissors.")
+    print("Your choice:", player)
+    print("Computer's choice:", computer)
+
+    if player == computer:
+        print("It's a draw!")
+    elif player == "rock" and computer == "scissors" or (player == "paper" and computer == "rock") or (player == "scissors" and computer == "paper"):
+        print("You win this round!")
+        player_score += 1
+    else:
+        print("Computer wins this round!")
+        computer_score += 1
+
+    print("Score — You:",player_score, "Score-Computer:",computer_score)
+
+print("Final Score — You:",player_score ,"Final Score — Computer:",computer_score)
+if player_score > computer_score:
+    print("You win the game!")
+elif computer_score > player_score:
+    print("Computer wins the game!")
+else:
+    print("The game is a draw!")
